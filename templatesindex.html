@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ارزیابی ایمنی آزمایشگاه</title>
+    <style>
+        body {
+            background-color: #d0eaff;
+            font-family: Arial;
+            direction: rtl;
+            padding: 20px;
+        }
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>فرم ارزیابی ایمنی آزمایشگاه</h2>
+        <label>اندازه آزمایشگاه (متر مربع):</label>
+        <input type="number" name="size" required>
+
+        <label>وسایل موجود (با کاما جدا کن):</label>
+        <textarea name="equipment" required></textarea>
+
+        <label>تعداد کارکنان:</label>
+        <input type="number" name="staff" required>
+
+        <label>تجهیزات حفاظتی (ماسک، گان، ...):</label>
+        <textarea name="ppe" required></textarea>
+
+        <label>منظور استفاده:</label>
+        <textarea name="purpose" required></textarea>
+
+        <button type="submit">ارزیابی</button>
+
+        {% if score %}
+        <div class="result">
+            <p>امتیاز ایمنی: {{ score }}</p>
+            <p>رده‌بندی: {{ category }}</p>
+        </div>
+        {% endif %}
+    </form>
+</body>
+</html>

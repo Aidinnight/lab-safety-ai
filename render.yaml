@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: lab-safety-ai
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
